@@ -13,9 +13,12 @@ IntelliJ Idea 12:
 
 Following templates are available:
 
-* mgclass
-* mgdep
-* mgfactory
-* mgmodule
-* mgspec
-* mgdirective
+* jsclass
+* jsdep
+* jsfactory
+* jsmodule
+* jsspec
+* jsdirective
+* jsit
+* jsdescribe
+* f - anonymous function
