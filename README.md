@@ -1,15 +1,16 @@
-angular-webstorm-livetemplates
-==============================
+javascript-intellij-livetemplates
+=================================
 
-Set of WebStorm live templates that I use when developing angular + requirejs applications
+Set of IntelliJ live templates for use when developing JS applications
 
-## Installation
-To install templates copy or link them into 
-WebStorm6:
-`~/Library/Preferences/WebStorm6/templates`
+## Installation (on Mac)
+To install templates copy or link them into:
 
 IntelliJ Idea 12:
 `~/Library/Preferences/IntelliJIdea12/templates`
+
+WebStorm6:
+`~/Library/Preferences/WebStorm6/templates`
 
 Following templates are available:
 
