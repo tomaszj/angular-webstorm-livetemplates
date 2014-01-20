@@ -13,12 +13,12 @@ IntelliJ Idea 12:
 
 Following templates are available:
 
-* jsclass
-* jsdep
-* jsfactory
-* jsmodule
-* jsspec
-* jsdirective
-* jsit
-* jsdescribe
+* class
+* dep
+* factory
+* module
+* spec
+* directive
+* it
+* describe
 * f - anonymous function

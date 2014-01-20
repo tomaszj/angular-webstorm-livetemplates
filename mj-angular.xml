@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templateSet group="mj-angular">
-  <template name="jsclass" value="define(function(){&#10;    var $CONTROLLER_NAME$ = function(){&#10;        $ENDS$&#10;    }&#10;&#10;    $CONTROLLER_NAME$.$inject = [];&#10;&#10;    return $CONTROLLER_NAME$;&#10;});" description="Angular Ready Class" toReformat="true" toShortenFQNames="true">
+  <template name="class" value="define(function(){&#10;    var $CONTROLLER_NAME$ = function(){&#10;        $END$&#10;    }&#10;&#10;    $CONTROLLER_NAME$.$inject = [];&#10;&#10;    return $CONTROLLER_NAME$;&#10;});" description="Angular Ready Class" toReformat="true" toShortenFQNames="true">
     <variable name="CONTROLLER_NAME" expression="capitalize(fileNameWithoutExtension())" defaultValue="TheController" alwaysStopAt="true" />
-    <variable name="ENDS" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -42,7 +41,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsspec" value="define(['angular', 'angular-mocks', '../$UNIT_FILE_NAME$'],&#10;    function(angular, angularMocks, $DEP_NAME$Spec){&#10;        describe('$DEP_NAME$', function(){&#10;            var $DEP_NAME$;&#10;&#10;            beforeEach(function(){&#10;                module('$MODULE_NAME$')&#10;            })&#10;&#10;            beforeEach(inject(function($controller, $rootScope){&#10;                var scope = $rootScope.$new()&#10;                $DEP_NAME$ = $controller('$DEP_NAME$', {$scope: scope});&#10;            }));&#10;&#10;            it('dependency is loaded', function(){&#10;                expect($DEP_NAME$).toBeDefined();&#10;            });&#10;        });&#10;    }&#10;);" description="Spec of Angular Unit" toReformat="false" toShortenFQNames="true">
+  <template name="spec" value="define(['angular', 'angular-mocks', '../$UNIT_FILE_NAME$'],&#10;    function(angular, angularMocks, $DEP_NAME$Spec){&#10;        describe('$DEP_NAME$', function(){&#10;            var $DEP_NAME$;&#10;&#10;            beforeEach(function(){&#10;                module('$MODULE_NAME$')&#10;            })&#10;&#10;            beforeEach(inject(function($controller, $rootScope){&#10;                var scope = $rootScope.$new()&#10;                $DEP_NAME$ = $controller('$DEP_NAME$', {$scope: scope});&#10;            }));&#10;&#10;            it('dependency is loaded', function(){&#10;                expect($DEP_NAME$).toBeDefined();&#10;            });&#10;        });&#10;    }&#10;);" description="Spec of Angular Unit" toReformat="false" toShortenFQNames="true">
     <variable name="UNIT_FILE_NAME" expression="decapitalize(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="true" />
     <variable name="DEP_NAME" expression="decapitalize(fileNameWithoutExtension())" defaultValue="" alwaysStopAt="true" />
     <variable name="MODULE_NAME" expression="&quot;module.name&quot;" defaultValue="" alwaysStopAt="true" />
@@ -85,7 +84,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsfactory" value="define(function () {&#10;    var $DEPENDENCY_NAME$ = function () {&#10;        return {&#10;        &#10;        }&#10;    }&#10;&#10;    $DEPENDENCY_NAME$.$inject = [];&#10;&#10;    return $DEPENDENCY_NAME$;&#10;});" description="Angular Ready Factory" toReformat="false" toShortenFQNames="true">
+  <template name="factory" value="define(function () {&#10;    var $DEPENDENCY_NAME$ = function () {&#10;        return {&#10;        &#10;        }&#10;    }&#10;&#10;    $DEPENDENCY_NAME$.$inject = [];&#10;&#10;    return $DEPENDENCY_NAME$;&#10;});" description="Angular Ready Factory" toReformat="false" toShortenFQNames="true">
     <variable name="DEPENDENCY_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML_TEXT" value="false" />
@@ -126,7 +125,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsdep" value="$MODULE_NAME$.$DEP_TYPE$('$DEP_NAME$', $DEP_VARIABLE$);" description="Register Angular Dependency" toReformat="false" toShortenFQNames="true">
+  <template name="dep" value="$MODULE_NAME$.$DEP_TYPE$('$DEP_NAME$', $DEP_VARIABLE$);" description="Register Angular Dependency" toReformat="false" toShortenFQNames="true">
     <variable name="MODULE_NAME" expression="completeSmart()" defaultValue="module" alwaysStopAt="true" />
     <variable name="DEP_TYPE" expression="enum(&quot;controller&quot;, &quot;factory&quot;, &quot;service&quot;, &quot;directive&quot;)" defaultValue="controller" alwaysStopAt="true" />
     <variable name="DEP_VARIABLE" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
@@ -170,7 +169,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsmodule" value="define(&#10;    [&#10;        'angular'&#10;    ]&#10;    , function(&#10;            angular&#10;        )&#10;    {&#10;        var $MODULE_VAR$ = angular.module('$MODLUE_NAME$', []);&#10;    }&#10;);" description="Angular Module" toReformat="false" toShortenFQNames="true">
+  <template name="module" value="define(&#10;    [&#10;        'angular'&#10;    ]&#10;    , function(&#10;            angular&#10;        )&#10;    {&#10;        var $MODULE_VAR$ = angular.module('$MODLUE_NAME$', []);&#10;    }&#10;);" description="Angular Module" toReformat="false" toShortenFQNames="true">
     <variable name="MODULE_VAR" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <variable name="MODLUE_NAME" expression="&quot;modules.&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -212,7 +211,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsmxspec" value="define(['../$UNIT_FILE_NAME$'],&#10;    function($UNIT_NAME$){&#10;        describe('$UNIT_NAME$', function(){&#10;            it('dependency is loaded', function(){&#10;                expect($UNIT_NAME$).toBeDefined();&#10;            });            &#10;        });&#10;    }&#10;);" description="RequireJs Spec" toReformat="false" toShortenFQNames="true">
+  <template name="mxspec" value="define(['../$UNIT_FILE_NAME$'],&#10;    function($UNIT_NAME$){&#10;        describe('$UNIT_NAME$', function(){&#10;            it('dependency is loaded', function(){&#10;                expect($UNIT_NAME$).toBeDefined();&#10;            });            &#10;        });&#10;    }&#10;);" description="RequireJs Spec" toReformat="false" toShortenFQNames="true">
     <variable name="UNIT_FILE_NAME" expression="decapitalize(UNIT_NAME)" defaultValue="" alwaysStopAt="true" />
     <variable name="UNIT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -254,7 +253,7 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsdirective" value="define(function () {&#10;    var $DEPENDENCY_NAME$ = function () {&#10;        return {&#10;            template : '',&#10;            link: function postLink(scope, iElement, iAttrs) {&#10;&#10;            },&#10;            restrict : 'A',&#10;            transclude: false,&#10;            scope : {&#10;                attribute_binding: '@',&#10;                delegate_binding: '&amp;',&#10;                two_way_binding: '='&#10;            },&#10;            controller: function($scope, $element, $attrs, $transclude){&#10;&#10;            }&#10;        }&#10;    }&#10;&#10;    $DEPENDENCY_NAME$.$inject = [];&#10;&#10;    return $DEPENDENCY_NAME$;&#10;});" description="Angular directive template" toReformat="false" toShortenFQNames="true">
+  <template name="directive" value="define(function () {&#10;    var $DEPENDENCY_NAME$ = function () {&#10;        return {&#10;            template : '',&#10;            link: function postLink(scope, iElement, iAttrs) {&#10;&#10;            },&#10;            restrict : 'A',&#10;            transclude: false,&#10;            scope : {&#10;                attribute_binding: '@',&#10;                delegate_binding: '&amp;',&#10;                two_way_binding: '='&#10;            },&#10;            controller: function($scope, $element, $attrs, $transclude){&#10;&#10;            }&#10;        }&#10;    }&#10;&#10;    $DEPENDENCY_NAME$.$inject = [];&#10;&#10;    return $DEPENDENCY_NAME$;&#10;});" description="Angular directive template" toReformat="false" toShortenFQNames="true">
     <variable name="DEPENDENCY_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML_TEXT" value="false" />
@@ -295,9 +294,8 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsdescribe" value="describe(&quot;$DESCRIPTION$&quot;, function() {&#10;    $ENDS$&#10;});" description="Jasmine describe in specs" toReformat="false" toShortenFQNames="true">
+  <template name="describe" value="describe(&quot;$DESCRIPTION$&quot;, function() {&#10;    $END$&#10;});" description="Jasmine describe in specs" toReformat="false" toShortenFQNames="true">
     <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="ENDS" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
@@ -337,9 +335,88 @@
       <option name="OTHER" value="false" />
     </context>
   </template>
-  <template name="jsit" value="it(&quot;should $DESCRIPTION$&quot;, function() {&#10;    $ENDS$&#10;});" description="Jasmine 'it' in specs" toReformat="false" toShortenFQNames="true">
+  <template name="it" value="it(&quot;should $DESCRIPTION$&quot;, function() {&#10;    $END$&#10;});" description="Jasmine 'it' in specs" toReformat="false" toShortenFQNames="true">
     <variable name="DESCRIPTION" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="ENDS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JSP" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="SQL" value="false" />
+      <option name="ColdFusion" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="GROOVY" value="false" />
+      <option name="GROOVY_EXPRESSION" value="false" />
+      <option name="GROOVY_STATEMENT" value="false" />
+      <option name="GROOVY_DECLARATION" value="false" />
+      <option name="OGNL" value="false" />
+      <option name="MAVEN" value="false" />
+      <option name="ASPECTJ" value="false" />
+      <option name="ACTION_SCRIPT" value="false" />
+      <option name="MXML" value="false" />
+      <option name="GSP" value="false" />
+      <option name="SCALA" value="false" />
+      <option name="HAML" value="false" />
+      <option name="RUBY" value="false" />
+      <option name="RHTML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="f" value="function() {$END$}" description="Anonymous function" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML_TEXT" value="false" />
+      <option name="HTML" value="false" />
+      <option name="XSL_TEXT" value="false" />
+      <option name="XML" value="false" />
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="false" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+      <option name="COMPLETION" value="false" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+      <option name="CSS" value="false" />
+      <option name="JSP" value="false" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="SQL" value="false" />
+      <option name="ColdFusion" value="false" />
+      <option name="CUCUMBER_FEATURE_FILE" value="false" />
+      <option name="CoffeeScript" value="false" />
+      <option name="GROOVY" value="false" />
+      <option name="GROOVY_EXPRESSION" value="false" />
+      <option name="GROOVY_STATEMENT" value="false" />
+      <option name="GROOVY_DECLARATION" value="false" />
+      <option name="OGNL" value="false" />
+      <option name="MAVEN" value="false" />
+      <option name="ASPECTJ" value="false" />
+      <option name="ACTION_SCRIPT" value="false" />
+      <option name="MXML" value="false" />
+      <option name="GSP" value="false" />
+      <option name="SCALA" value="false" />
+      <option name="HAML" value="false" />
+      <option name="RUBY" value="false" />
+      <option name="RHTML" value="false" />
+      <option name="OTHER" value="false" />
+    </context>
+  </template>
+  <template name="bef" value="beforeEach(function() {&#10;    $END$&#10;});" description="Before each - in specs" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML_TEXT" value="false" />
       <option name="HTML" value="false" />
